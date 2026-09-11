@@ -51,3 +51,60 @@ const typed = new Typed('.multiple-text', {
     backDelay: 1000,
     loop: true
 });
+
+/* ================= PROJECT POPUP ================= */
+
+const projectData = {
+    project1: {
+        title: 'Web Design',
+        description: 'Proyek pertama berupa desain website yang dibuat untuk menampilkan informasi dengan tampilan yang menarik dan responsif.'
+    },
+    project2: {
+        title: 'Web Development',
+        description: 'Proyek kedua berfokus pada pembuatan dan pengembangan website menggunakan HTML, CSS, dan JavaScript.'
+    },
+    project3: {
+        title: 'UI/UX Design',
+        description: 'Proyek ketiga berfokus pada rancangan antarmuka agar website lebih nyaman digunakan dan mudah dipahami.'
+    },
+    tanaman1: {
+        title: 'Menananam Kangkung: Tugas Ketahanan Pangan Mapel PPLG',
+        description: 'Proyek ketahanan pangan mata pelajaran Pengembangan Perangkat Lunak dan Gim (PPLG) berupa kegiatan budidaya tanaman kangkung, yang menggabungkan proses pembelajaran agrikultur praktis untuk mendukung kemandirian pangan.'
+    },
+    tanaman2: {
+        title: ' 10 MenanamJenis TOGA: Projek Kesehatan Mandiri dan Lingkungan',
+        description: 'Proyek ketahanan pangan dan pemanfaatan lahan sekolah melalui budidaya 10 jenis Tanaman Obat Keluarga (TOGA) pilihan, yang memadukan kegiatan agrikultur praktis dengan penerapan teknologi digital untuk mendukung kesehatan mandiri dan edukasi lingkungan.'
+    }
+};
+
+function openProject(projectId) {
+    const modal = document.getElementById('projectModal');
+    const title = document.getElementById('modalTitle');
+    const description = document.getElementById('modalDescription');
+    const project = projectData[projectId];
+
+    if (!project) return;
+
+    title.textContent = project.title;
+    description.textContent = project.description;
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeProject() {
+    const modal = document.getElementById('projectModal');
+    modal.classList.remove('show');
+    document.body.style.overflow = '';
+}
+
+document.getElementById('projectModal').addEventListener('click', (event) => {
+    if (event.target.id === 'projectModal') {
+        closeProject();
+    }
+});
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        closeProject();
+    }
+});

@@ -17,7 +17,7 @@
 </head>
 <body>
     <!-- HEADER -->
-    <header class="header">
+    <header class="head">
         <a href="#" class="logo">Portfolio.</a>
 
         <i class='bx bx-menu' id="menu-icon"></i>
@@ -98,30 +98,38 @@ Saya memiliki cita-cita untuk menjadi bos muda yang sukses dan mencapai kebebasa
     <section class="portfolio" id="portfolio">
         <h2 class="heading">Latest <span>Project</span></h2>
 
-        <div class="portfolio-container">
-            <div class="portfolio-box">
-                <img src="portofolio1.jpg" alt="Project 1">
+
+            <!-- PROJECT TANAMAN 1 -->
+            <div class="portfolio-box plant-project" onclick="openProject('tanaman1')">
+                <img src="tanaman-1.jpg" alt="Tanaman Project 1">
                 <div class="portfolio-layer">
-                    <h4>Web Design</h4>
-                    <p>Deskripsi singkat proyek pertama Anda.</p>
-                    <a href="#"><i class='bx bx-link-external'></i></a>
+                    <h4>Menananam Kangkung: Tugas Ketahanan Pangan Mapel PPLG</h4>
+                    <p>.</p>
+                    <button class="project-btn" onclick="openProject('tanaman1')">
+                        <i class='bx bx-info-circle'></i>
+                    </button>
                 </div>
             </div>
-            <div class="portfolio-box">
-                <img src="portofolio2.jpg" alt="Project 2">
+
+            <!-- PROJECT TANAMAN 2 -->
+            <div class="portfolio-box plant-project" onclick="openProject('tanaman2')">
+                <img src="tanaman-2.jpg" alt="Tanaman Project 2">
                 <div class="portfolio-layer">
-                    <h4>Web Development</h4>
-                    <p>Deskripsi singkat proyek kedua Anda.</p>
-                    <a href="#"><i class='bx bx-link-external'></i></a>
+                    <h4> 10 MenanamJenis TOGA: Projek Kesehatan Mandiri dan Lingkungan</h4>
+                    <p>.</p>
+                    <button class="project-btn" onclick="openProject('tanaman2')">
+                        <i class='bx bx-info-circle'></i>
+                    </button>
                 </div>
             </div>
-            <div class="portfolio-box">
-                <img src="portofolio3.jpg" alt="Project 3">
-                <div class="portfolio-layer">
-                    <h4>UI/UX Design</h4>
-                    <p>Deskripsi singkat proyek ketiga Anda.</p>
-                    <a href="#"><i class='bx bx-link-external'></i></a>
-                </div>
+        </div>
+
+        <!-- POPUP / MODAL PROJECT -->
+        <div class="project-modal" id="projectModal">
+            <div class="project-modal-content">
+                <button class="modal-close" onclick="closeProject()">&times;</button>
+                <h3 id="modalTitle">Project</h3>
+                <p id="modalDescription"></p>
             </div>
         </div>
     </section>
