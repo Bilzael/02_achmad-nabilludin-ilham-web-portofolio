@@ -2,175 +2,324 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Personal Portfolio</title>
-    
+    <title>Achmad Nabilludin Ilham | Portfolio</title>
+
     <!-- Boxicons -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    
-    <!-- Google Fonts: Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+    <!-- Google Fonts: Plus Jakarta Sans & Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Efek Cahaya Latar Belakang -->
+    <div class="bg-glow bg-glow-1" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow-2" aria-hidden="true"></div>
+
     <!-- HEADER -->
-    <header class="head">
-        <a href="#" class="logo">Portfolio.</a>
+    <header class="header" id="header">
+        <div class="container header-inner">
+            <a href="#home" class="logo">Bilzael<span>.</span></a>
 
-        <i class='bx bx-menu' id="menu-icon"></i>
+            <button
+                class="menu-toggle"
+                id="menu-icon"
+                type="button"
+                aria-label="Buka navigasi"
+                aria-expanded="false"
+                aria-controls="navbar"
+            >
+                <i class="bx bx-menu"></i>
+            </button>
 
-        <nav class="navbar">
-            <a href="#home" class="active">Home</a>
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#contact">Contact</a>
-        </nav>
+            <nav class="navbar" id="navbar" aria-label="Navigasi utama">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#portfolio" class="nav-link">Portfolio</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+        </div>
     </header>
 
-    <!-- HOME SECTION -->
-    <section class="home" id="home">
-        <div class="home-content">
-            <h3>Halo, Nama Saya</h3>
-            <h1>Achmad Nabilludin Ilham</h1>
-            <h3>Saya Adalah <span class="multiple-text"></span></h3>
-            <p>Saya merupakan siswa SMK Krian 1 Sidoarjo, kelas X, jurusan Rekayasa Perangkat Lunak (RPL).
-Saya memiliki ketertarikan pada teknologi, game, dan investasi. Sebagai seorang pelajar RPL, saya sedang belajar dan mengembangkan kemampuan di bidang teknologi, khususnya dalam membuat dan mengembangkan website.</p>
-            
-            <div class="social-media">
-                <a href="https://wa.me/6289672883739"><i class='bx bxl-whatsapp'></i></a>
-                <a href="https://www.tiktok.com/@bilzael_?_r=1&_t=ZS-99YUUIsy6wm"><i class='bx bxl-tiktok'></i></a>
-                <a href="https://www.instagram.com/bilzael_?stkn=dWMzcThmaDBwcWxs"><i class='bx bxl-instagram-alt'></i></a>
-                <a href="#"><i class='bx bxl-whatsapp'></i></a>
-            </div>
+    <main>
+        <!-- HOME SECTION -->
+        <section class="home section" id="home">
+            <div class="container home-grid">
+                <div class="home-content reveal">
+                    <span class="hero-badge">
+                        <i class="bx bxs-circle"></i> Siswa X RPL 1 • SMK Krian 1 Sidoarjo
+                    </span>
+                    <p class="hero-greeting">Halo, Nama Saya</p>
+                    <h1>Achmad Nabilludin <span>Ilham</span></h1>
+                    <h2 class="hero-role">
+                        Saya Adalah <span class="multiple-text" id="typed-text"></span><span class="cursor" aria-hidden="true">|</span>
+                    </h2>
+                    <p class="hero-desc">
+                        Saya merupakan siswa SMK Krian 1 Sidoarjo, kelas X, jurusan Rekayasa Perangkat Lunak (RPL).
+                        Saya memiliki ketertarikan pada teknologi, game, dan investasi. Sebagai pelajar RPL, saya terus belajar dan mengembangkan kemampuan di bidang teknologi, khususnya dalam membangun website yang modern dan bermanfaat.
+                    </p>
 
-            <a href="#" class="btn">Download CV</a>
-        </div>
-        <div class="home-img">
-            <img src="menu.png" alt="Profile Picture">
-        </div>
-    </section>
+                    <div class="social-media" aria-label="Media sosial">
+                        <a href="https://wa.me/6289672883739" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" title="WhatsApp">
+                            <i class="bx bxl-whatsapp"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@bilzael_?_r=1&_t=ZS-99YUUIsy6wm" target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok">
+                            <i class="bx bxl-tiktok"></i>
+                        </a>
+                        <a href="https://www.instagram.com/bilzael_?stkn=dWMzcThmaDBwcWxs" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+                            <i class="bx bxl-instagram-alt"></i>
+                        </a>
+                        <!-- GANTI URL LINKEDIN DI BAWAH DENGAN PROFIL LINKEDIN ASLI -->
+                        <a href="https://www.linkedin.com/in/achmad-nabilludin-ilham" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+                            <i class="bx bxl-linkedin"></i>
+                        </a>
+                    </div>
 
-    <!-- ABOUT SECTION -->
-    <section class="about" id="about">
-        <div class="about-img" alt="crut">
-            <img src="foto2.png" alt="Foto Saya"> 
-        </div>
-        <div class="about-content">
-            <h2 class="heading">About <span>Me</span></h2>
-            <h3>Frontend Developer!</h3>
-            <p>Saya adalah orang yang disiplin, pekerja keras, dan mandiri. Saya terbiasa berusaha menyelesaikan tugas dan menghadapi masalah dengan kemampuan sendiri sebelum meminta bantuan. Saya percaya bahwa proses belajar, konsistensi, tanggung jawab, dan kemauan untuk terus berkembang merupakan hal penting untuk mencapai tujuan.
-Saya memiliki cita-cita untuk menjadi bos muda yang sukses dan mencapai kebebasan finansial. Untuk mewujudkannya, saya ingin terus meningkatkan kemampuan, menambah pengalaman, dan memanfaatkan setiap kesempatan untuk belajar hal-hal baru..</p>
-            <a href="#" class="btn">Read More</a>
-        </div>
-    </section>
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn btn-primary">
+                            Hubungi Saya <i class="bx bx-send"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline">
+                            <i class="bx bx-download"></i> Download CV
+                        </a>
+                    </div>
+                </div>
 
-    <!-- SERVICES SECTION -->
-    <section class="services" id="services">
-        <h2 class="heading">Our <span>Services</span></h2>
-
-        <div class="services-container">
-            <div class="services-box">
-                <i class='bx bx-code-alt'></i>
-                <h3>Web Development</h3>
-                <p>Membangun website responsif dan interaktif menggunakan teknologi terbaru.</p>
-                <a href="#" class="btn">Read More</a>
-            </div>
-            <div class="services-box">
-                <i class='bx bxs-paint'></i>
-                <h3>UI/UX Design</h3>
-                <p>Merancang antarmuka pengguna yang menarik dan pengalaman pengguna yang nyaman.</p>
-                <a href="#" class="btn">Read More</a>
-            </div>
-            <div class="services-box">
-                <i class='bx bx-bar-chart-alt'></i>
-                <h3>Digital Marketing</h3>
-                <p>Membantu memasarkan produk Anda ke jangkauan yang lebih luas secara digital.</p>
-                <a href="#" class="btn">Read More</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- PORTFOLIO SECTION -->
-    <section class="portfolio" id="portfolio">
-        <h2 class="heading">Latest <span>Project</span></h2>
-
-
-            <!-- PROJECT TANAMAN 1 -->
-            <div class="portfolio-box plant-project" onclick="openProject('tanaman1')">
-                <img src="tanaman-1.jpg" alt="Tanaman Project 1">
-                <div class="portfolio-layer">
-                    <h4>Menananam Kangkung: Tugas Ketahanan Pangan Mapel PPLG</h4>
-                    <p>.</p>
-                    <button class="project-btn" onclick="openProject('tanaman1')">
-                        <i class='bx bx-info-circle'></i>
-                    </button>
+                <div class="home-img reveal">
+                    <div class="img-halo">
+                        <img src="menu.png" alt="Foto Profil Achmad Nabilludin Ilham">
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <!-- PROJECT TANAMAN 2 -->
-            <div class="portfolio-box plant-project" onclick="openProject('tanaman2')">
-                <img src="tanaman-2.jpg" alt="Tanaman Project 2">
-                <div class="portfolio-layer">
-                    <h4> 10 MenanamJenis TOGA: Projek Kesehatan Mandiri dan Lingkungan</h4>
-                    <p>.</p>
-                    <button class="project-btn" onclick="openProject('tanaman2')">
-                        <i class='bx bx-info-circle'></i>
-                    </button>
+        <!-- ABOUT SECTION -->
+        <section class="about section section-alt" id="about">
+            <div class="container about-grid">
+                <div class="about-img reveal">
+                    <div class="about-frame">
+                        <img src="foto2.png" alt="Foto Achmad Nabilludin Ilham">
+                    </div>
+                </div>
+
+                <div class="about-content reveal">
+                    <span class="section-tag">Tentang Saya</span>
+                    <h2 class="heading heading-left">About <span>Me</span></h2>
+                    <h3>Frontend Developer &amp; Tech Enthusiast</h3>
+                    <p>
+                        Saya adalah pribadi yang disiplin, pekerja keras, dan mandiri. Saya terbiasa berusaha menyelesaikan tugas dan menghadapi masalah dengan kemampuan sendiri sebelum meminta bantuan. Saya percaya bahwa proses belajar, konsistensi, tanggung jawab, dan kemauan untuk terus berkembang adalah kunci mencapai tujuan.
+                    </p>
+                    <p>
+                        Saya memiliki cita-cita menjadi pengusaha muda yang sukses dan mencapai kebebasan finansial. Untuk mewujudkannya, saya terus meningkatkan skill, memperbanyak pengalaman, dan memanfaatkan setiap peluang untuk belajar hal baru.
+                    </p>
+
+                    <div class="about-highlights">
+                        <div class="highlight-card">
+                            <strong>X RPL 1</strong>
+                            <span>SMK Krian 1 Sidoarjo</span>
+                        </div>
+                        <div class="highlight-card">
+                            <strong>Fokus</strong>
+                            <span>Web Dev &amp; UI/UX</span>
+                        </div>
+                        <div class="highlight-card">
+                            <strong>Minat</strong>
+                            <span>Teknologi, Game &amp; Investasi</span>
+                        </div>
+                    </div>
+
+                    <a href="#portfolio" class="btn btn-primary">Lihat Project Saya</a>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- POPUP / MODAL PROJECT -->
-        <div class="project-modal" id="projectModal">
-            <div class="project-modal-content">
-                <button class="modal-close" onclick="closeProject()">&times;</button>
-                <h3 id="modalTitle">Project</h3>
-                <p id="modalDescription"></p>
-            </div>
-        </div>
-    </section>
+        <!-- SERVICES SECTION -->
+        <section class="services section" id="services">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-tag">Layanan &amp; Keahlian</span>
+                    <h2 class="heading">Our <span>Services</span></h2>
+                </div>
 
-    <!-- CONTACT SECTION -->
-    <section class="contact" id="contact">
-        <h2 class="heading">Contact <span>Me!</span></h2>
+                <div class="services-container">
+                    <article class="services-box reveal">
+                        <div class="service-icon">
+                            <i class="bx bx-code-alt"></i>
+                        </div>
+                        <h3>Web Development</h3>
+                        <p>Membangun website responsif, cepat, dan interaktif menggunakan teknologi web modern agar nyaman diakses di semua perangkat.</p>
+                        <a href="#contact" class="service-link">Diskusi Proyek <i class="bx bx-right-arrow-alt"></i></a>
+                    </article>
 
-        <form action="#">
-            <div class="input-box">
-                <input type="text" placeholder="Full Name">
-                <input type="email" placeholder="Email Address">
+                    <article class="services-box reveal">
+                        <div class="service-icon">
+                            <i class="bx bxs-paint"></i>
+                        </div>
+                        <h3>UI/UX Design</h3>
+                        <p>Merancang antarmuka pengguna yang rapi, estetik, dan intuitif untuk menciptakan pengalaman pengguna yang nyaman.</p>
+                        <a href="#contact" class="service-link">Diskusi Proyek <i class="bx bx-right-arrow-alt"></i></a>
+                    </article>
+
+                    <article class="services-box reveal">
+                        <div class="service-icon">
+                            <i class="bx bx-bar-chart-alt"></i>
+                        </div>
+                        <h3>Digital Marketing</h3>
+                        <p>Membantu memperkenalkan dan memasarkan produk ke jangkauan audiens yang lebih luas secara terukur melalui kanal digital.</p>
+                        <a href="#contact" class="service-link">Diskusi Proyek <i class="bx bx-right-arrow-alt"></i></a>
+                    </article>
+                </div>
             </div>
-            <div class="input-box">
-                <input type="number" placeholder="Mobile Number">
-                <input type="text" placeholder="Email Subject">
+        </section>
+
+        <!-- PORTFOLIO SECTION -->
+        <section class="portfolio section section-alt" id="portfolio">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-tag">Karya &amp; Tugas Pilihan</span>
+                    <h2 class="heading">Latest <span>Projects</span></h2>
+                </div>
+
+                <div class="portfolio-container">
+                    <!-- PROJECT TANAMAN 1 -->
+                    <article class="portfolio-box plant-project reveal" data-project="tanaman1" tabindex="0" role="button" aria-label="Buka detail proyek Menanam Kangkung">
+                        <div class="portfolio-thumb">
+                            <img src="tanaman-1.jpg" alt="Proyek Menanam Kangkung Mapel PPLG">
+                            <span class="portfolio-badge">PPLG • Ketahanan Pangan</span>
+                        </div>
+                        <div class="portfolio-body">
+                            <h3>Menanam Kangkung: Tugas Ketahanan Pangan Mapel PPLG</h3>
+                            <p>Budidaya kangkung praktis sebagai tugas ketahanan pangan untuk mendukung kemandirian pangan di lingkungan sekolah.</p>
+                            <button type="button" class="project-btn" data-project="tanaman1">
+                                Lihat Detail <i class="bx bx-info-circle"></i>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- PROJECT TANAMAN 2 -->
+                    <article class="portfolio-box plant-project reveal" data-project="tanaman2" tabindex="0" role="button" aria-label="Buka detail proyek Menanam 10 Jenis TOGA">
+                        <div class="portfolio-thumb">
+                            <img src="tanaman-2.jpg" alt="Proyek Menanam 10 Jenis Tanaman Obat Keluarga TOGA">
+                            <span class="portfolio-badge">Lingkungan • TOGA</span>
+                        </div>
+                        <div class="portfolio-body">
+                            <h3>Menanam 10 Jenis TOGA: Projek Kesehatan Mandiri dan Lingkungan</h3>
+                            <p>Pemanfaatan lahan melalui budidaya 10 Tanaman Obat Keluarga yang dipadukan dengan edukasi digital.</p>
+                            <button type="button" class="project-btn" data-project="tanaman2">
+                                Lihat Detail <i class="bx bx-info-circle"></i>
+                            </button>
+                        </div>
+                    </article>
+                </div>
             </div>
-            <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
-            <input type="submit" value="Send Message" class="btn">
-        </form>
-    </section>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section class="contact section" id="contact">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-tag">Terhubung Dengan Saya</span>
+                    <h2 class="heading">Contact <span>Me!</span></h2>
+                </div>
+
+                <div class="contact-grid">
+                    <!-- Info & Social Links termasuk LinkedIn -->
+                    <div class="contact-info reveal">
+                        <h3>Mari Berkolaborasi</h3>
+                        <p>Punya ide proyek website, kolaborasi tugas, atau ingin berdiskusi soal teknologi? Hubungi saya lewat formulir atau langsung melalui tautan di bawah ini.</p>
+
+                        <div class="contact-links">
+                            <a href="https://www.linkedin.com/in/achmad-nabilludin-ilham" target="_blank" rel="noopener noreferrer" class="contact-card">
+                                <i class="bx bxl-linkedin"></i>
+                                <div>
+                                    <strong>LinkedIn</strong>
+                                    <span>Terhubung secara profesional</span>
+                                </div>
+                            </a>
+                            <a href="https://wa.me/6289672883739" target="_blank" rel="noopener noreferrer" class="contact-card">
+                                <i class="bx bxl-whatsapp"></i>
+                                <div>
+                                    <strong>WhatsApp</strong>
+                                    <span>+62 896-7288-3739</span>
+                                </div>
+                            </a>
+                            <a href="https://www.instagram.com/bilzael_?stkn=dWMzcThmaDBwcWxs" target="_blank" rel="noopener noreferrer" class="contact-card">
+                                <i class="bx bxl-instagram-alt"></i>
+                                <div>
+                                    <strong>Instagram</strong>
+                                    <span>@bilzael_</span>
+                                </div>
+                            </a>
+                            <a href="https://www.tiktok.com/@bilzael_?_r=1&_t=ZS-99YUUIsy6wm" target="_blank" rel="noopener noreferrer" class="contact-card">
+                                <i class="bx bxl-tiktok"></i>
+                                <div>
+                                    <strong>TikTok</strong>
+                                    <span>@bilzael_</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <form class="contact-form reveal" id="contactForm" novalidate>
+                        <div class="input-box">
+                            <input type="text" id="fullName" name="fullName" placeholder="Nama Lengkap" required>
+                            <input type="email" id="email" name="email" placeholder="Alamat Email" required>
+                        </div>
+                        <div class="input-box">
+                            <input type="tel" id="phone" name="phone" placeholder="Nomor WhatsApp / HP">
+                            <input type="text" id="subject" name="subject" placeholder="Subjek Pesan" required>
+                        </div>
+                        <textarea id="message" name="message" rows="6" placeholder="Tulis pesan Anda di sini..." required></textarea>
+
+                        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+
+                        <button type="submit" class="btn btn-primary btn-full">
+                            Kirim Pesan <i class="bx bx-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- FOOTER -->
     <footer class="footer">
-        <div class="footer-text">
-            <p>Copyright &copy; 2024 | All Rights Reserved.</p>
-        </div>
-        <div class="footer-iconTop">
-            <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
+        <div class="container footer-inner">
+            <p class="footer-text">Copyright &copy; 2026 <span>Achmad Nabilludin Ilham</span>. All Rights Reserved.</p>
+
+            <div class="footer-actions">
+                <div class="footer-socials">
+                    <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bx bxl-linkedin"></i></a>
+                    <a href="https://www.instagram.com/bilzael_?stkn=dWMzcThmaDBwcWxs" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bx bxl-instagram-alt"></i></a>
+                    <a href="https://www.tiktok.com/@bilzael_?_r=1&_t=ZS-99YUUIsy6wm" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="bx bxl-tiktok"></i></a>
+                    <a href="https://wa.me/6289672883739" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="bx bxl-whatsapp"></i></a>
+                </div>
+                <a href="#home" class="footer-iconTop" aria-label="Kembali ke atas">
+                    <i class="bx bx-up-arrow-alt"></i>
+                </a>
+            </div>
         </div>
     </footer>
 
-    <!-- 1. Scroll Reveal Library -->
-  
-  <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- POPUP / MODAL PROJECT -->
+    <div class="project-modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="project-modal-content">
+            <button type="button" class="modal-close" id="modalClose" aria-label="Tutup popup">&times;</button>
+            <img src="" alt="" class="modal-img" id="modalImage">
+            <span class="modal-category" id="modalCategory"></span>
+            <h3 id="modalTitle">Project</h3>
+            <p id="modalDescription"></p>
+        </div>
+    </div>
 
-    
-    <!-- 2. Typed JS Library -->
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-
-    <!-- 3. Custom JS -->
+    <!-- Custom JS (Vanilla ES6+) -->
     <script src="script.js"></script>
 </body>
 </html>
