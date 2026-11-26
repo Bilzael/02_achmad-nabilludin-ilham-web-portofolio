@@ -193,7 +193,37 @@ contactForm.addEventListener('submit', (event) => {
         formStatus.className = 'form-status error';
         return;
     }
+if (!name || !email || !subject || !message) {
+      formStatus.textContent = 'Mohon lengkapi nama, email, subjek, dan pesan terlebih dahulu.';
+      formStatus.className = 'form-status error';
+      return;
+    }
+  }); // <--- Baris 195 (Penutup fungsi contactForm)
 
+  // ==========================================
+  // TEMPELKAN KODE FILTER SERTIFIKAT DI SINI
+  // ==========================================
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const certificateCards = document.querySelectorAll('.certificate-card');
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      const filterValue = button.getAttribute('data-filter');
+
+      certificateCards.forEach(card => {
+        const category = card.getAttribute('data-category');
+
+        if (filterValue === 'all' || category === filterValue) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email)) {
         formStatus.textContent = 'Format alamat email belum valid.';
