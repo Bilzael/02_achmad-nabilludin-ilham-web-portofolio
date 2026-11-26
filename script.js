@@ -1,110 +1,207 @@
-let menuIcon = document.querySelector('#menu-icon');
-let navbar  = document.querySelector('.navbar');
+/* ================= MOBILE NAVBAR & SCROLL SPY ================= */
 
-menuIcon.onclick = () => {
-    menuIcon.classList.toggle('bx-x');
-    navbar.classList.toggle('active');
-};
+const header = document.getElementById('header');
+const menuToggle = document.getElementById('menu-icon');
+const menuIconGlyph = menuToggle.querySelector('i');
+const navbar = document.getElementById('navbar');
+const sections = document.querySelectorAll('main section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
 
-let sections = document.querySelectorAll('section');
-let navLinks = document.querySelectorAll('header nav a');
-
-window.onscroll = () => {
-    sections.forEach(sec => {
-        let top = window.scrollY;
-        let offset = sec.offsetTop - 150;
-        let height = sec.offheight;
-        let id = sec.getAttribute('id');
-
-        if(top >= offset && top < offset + height) {
-            navLinks.forEach(links => {
-                links.classList.remove('active');
-                document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
-            })
-        };
-    });
-    
-    let header = document.querySelector('header');
-
-    header.classList.toggle('sticky', window.scrollY > 100);
-
-    menuIcon.classList.remove('bx-x');
+const closeMobileMenu = () => {
     navbar.classList.remove('active');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuIconGlyph.classList.replace('bx-x', 'bx-menu');
 };
 
-
-ScrollReveal({
-    distance: '80px',
-    duration: 2000,
-    delay: 200
+menuToggle.addEventListener('click', () => {
+    const isOpen = navbar.classList.toggle('active');
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+    menuIconGlyph.classList.toggle('bx-menu', !isOpen);
+    menuIconGlyph.classList.toggle('bx-x', isOpen);
 });
 
-ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
-ScrollReveal().reveal('.home-img, .services-container, .portfolio-box, .contact form', { origin: 'bottom' });
-ScrollReveal().reveal('.home-content h1, .about-img', { origin: 'left' });
-ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
-
-const typed = new Typed('.multiple-text', {
-    strings: ['Siswa SMKS Krian 1 Sidoarjo', 'Siswa X RPL 1'],
-    typeSpeed: 100,
-    backSpeed: 100,
-    backDelay: 1000,
-    loop: true
+navLinks.forEach((link) => {
+    link.addEventListener('click', closeMobileMenu);
 });
 
-/* ================= PROJECT POPUP ================= */
+const handleScroll = () => {
+    const scrollY = window.scrollY;
+    header.classList.toggle('sticky', scrollY > 40);
+
+    sections.forEach((sec) => {
+        const offset = sec.offsetTop - 160;
+        const height = sec.offsetHeight;
+        const id = sec.getAttribute('id');
+
+        if (scrollY >= offset && scrollY < offset + height) {
+            navLinks.forEach((link) => {
+                link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+            });
+        }
+    });
+};
+
+window.addEventListener('scroll', handleScroll, { passive: true });
+handleScroll();
+
+/* ================= VANILLA TYPING EFFECT ================= */
+
+const typedTarget = document.getElementById('typed-text');
+const roles = [
+    'Siswa SMKS Krian 1 Sidoarjo',
+    'Siswa X RPL 1',
+    'Frontend Developer'
+];
+
+let roleIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+
+const runTyping = () => {
+    if (!typedTarget) return;
+
+    const currentRole = roles[roleIndex];
+    typedTarget.textContent = currentRole.slice(0, charIndex);
+
+    let delay = isDeleting ? 55 : 95;
+
+    if (!isDeleting && charIndex === currentRole.length) {
+        delay = 1400;
+        isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        delay = 350;
+    } else {
+        charIndex += isDeleting ? -1 : 1;
+    }
+
+    setTimeout(runTyping, delay);
+};
+
+runTyping();
+
+/* ================= SCROLL REVEAL (INTERSECTION OBSERVER) ================= */
+
+const revealElements = document.querySelectorAll('.reveal');
+
+if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.14 }
+    );
+
+    revealElements.forEach((el) => revealObserver.observe(el));
+} else {
+    revealElements.forEach((el) => el.classList.add('visible'));
+}
+
+/* ================= PROJECT MODAL ================= */
 
 const projectData = {
-    project1: {
-        title: 'Web Design',
-        description: 'Proyek pertama berupa desain website yang dibuat untuk menampilkan informasi dengan tampilan yang menarik dan responsif.'
-    },
-    project2: {
-        title: 'Web Development',
-        description: 'Proyek kedua berfokus pada pembuatan dan pengembangan website menggunakan HTML, CSS, dan JavaScript.'
-    },
-    project3: {
-        title: 'UI/UX Design',
-        description: 'Proyek ketiga berfokus pada rancangan antarmuka agar website lebih nyaman digunakan dan mudah dipahami.'
-    },
     tanaman1: {
-        title: 'Menananam Kangkung: Tugas Ketahanan Pangan Mapel PPLG',
-        description: 'Proyek ketahanan pangan mata pelajaran Pengembangan Perangkat Lunak dan Gim (PPLG) berupa kegiatan budidaya tanaman kangkung, yang menggabungkan proses pembelajaran agrikultur praktis untuk mendukung kemandirian pangan.'
+        title: 'Menanam Kangkung: Tugas Ketahanan Pangan Mapel PPLG',
+        category: 'PPLG • Ketahanan Pangan',
+        image: 'tanaman-1.jpg',
+        description:
+            'Proyek ketahanan pangan mata pelajaran Pengembangan Perangkat Lunak dan Gim (PPLG) berupa kegiatan budidaya tanaman kangkung, yang menggabungkan proses pembelajaran agrikultur praktis untuk mendukung kemandirian pangan.'
     },
     tanaman2: {
-        title: ' 10 MenanamJenis TOGA: Projek Kesehatan Mandiri dan Lingkungan',
-        description: 'Proyek ketahanan pangan dan pemanfaatan lahan sekolah melalui budidaya 10 jenis Tanaman Obat Keluarga (TOGA) pilihan, yang memadukan kegiatan agrikultur praktis dengan penerapan teknologi digital untuk mendukung kesehatan mandiri dan edukasi lingkungan.'
+        title: 'Menanam 10 Jenis TOGA: Projek Kesehatan Mandiri dan Lingkungan',
+        category: 'Projek Lingkungan • TOGA',
+        image: 'tanaman-2.jpg',
+        description:
+            'Proyek ketahanan pangan dan pemanfaatan lahan sekolah melalui budidaya 10 jenis Tanaman Obat Keluarga (TOGA) pilihan, yang memadukan kegiatan agrikultur praktis dengan penerapan teknologi digital untuk mendukung kesehatan mandiri dan edukasi lingkungan.'
     }
 };
 
-function openProject(projectId) {
-    const modal = document.getElementById('projectModal');
-    const title = document.getElementById('modalTitle');
-    const description = document.getElementById('modalDescription');
-    const project = projectData[projectId];
+const modal = document.getElementById('projectModal');
+const modalClose = document.getElementById('modalClose');
+const modalImage = document.getElementById('modalImage');
+const modalCategory = document.getElementById('modalCategory');
+const modalTitle = document.getElementById('modalTitle');
+const modalDescription = document.getElementById('modalDescription');
 
+const openProject = (projectId) => {
+    const project = projectData[projectId];
     if (!project) return;
 
-    title.textContent = project.title;
-    description.textContent = project.description;
+    modalImage.src = project.image;
+    modalImage.alt = project.title;
+    modalCategory.textContent = project.category;
+    modalTitle.textContent = project.title;
+    modalDescription.textContent = project.description;
+
     modal.classList.add('show');
+    modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
-}
+};
 
-function closeProject() {
-    const modal = document.getElementById('projectModal');
+const closeProject = () => {
     modal.classList.remove('show');
+    modal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
-}
+};
 
-document.getElementById('projectModal').addEventListener('click', (event) => {
-    if (event.target.id === 'projectModal') {
-        closeProject();
-    }
+document.querySelectorAll('.plant-project').forEach((card) => {
+    const projectId = card.dataset.project;
+
+    card.addEventListener('click', () => openProject(projectId));
+    card.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            openProject(projectId);
+        }
+    });
+});
+
+modalClose.addEventListener('click', closeProject);
+
+modal.addEventListener('click', (event) => {
+    if (event.target === modal) closeProject();
 });
 
 document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
         closeProject();
+        closeMobileMenu();
     }
+});
+
+/* ================= CONTACT FORM VALIDATION ================= */
+
+const contactForm = document.getElementById('contactForm');
+const formStatus = document.getElementById('formStatus');
+
+contactForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const name = document.getElementById('fullName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const subject = document.getElementById('subject').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    if (!name || !email || !subject || !message) {
+        formStatus.textContent = 'Mohon lengkapi nama, email, subjek, dan pesan terlebih dahulu.';
+        formStatus.className = 'form-status error';
+        return;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        formStatus.textContent = 'Format alamat email belum valid.';
+        formStatus.className = 'form-status error';
+        return;
+    }
+
+    formStatus.textContent = `Terima kasih, ${name}! Pesan berhasil divalidasi dan siap dikirim.`;
+    formStatus.className = 'form-status success';
+    contactForm.reset();
 });
